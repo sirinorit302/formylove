@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f0a1a">
+    <title>💕 คิว & ฟ้าใส | ครบรอบ 10 ปี 💕</title>
+    <meta name="description" content="เว็บไซต์ครบรอบ 10 ปีความรักของคิวและฟ้าใส - 13 มีนาคม 2559">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div id="floating-hearts" class="floating-hearts"></div>
+
+    <!-- ============ INTRO / ENVELOPE SECTION ============ -->
+    <section id="intro" class="intro-section">
+        <div class="stars-container" id="stars"></div>
+        <div class="intro-content">
+            <div class="intro-sparkle">✨</div>
+            <h1 class="intro-title">ถึง...มุ้ว 💕</h1>
+            <p class="intro-subtitle">มีจดหมายถึงเธอ 1 ฉบับ</p>
+            <div class="envelope" id="envelope" onclick="openEnvelope()">
+                <div class="envelope-top"></div>
+                <div class="envelope-body">
+                    <div class="envelope-letter">
+                        <p>💕</p>
+                    </div>
+                </div>
+                <p class="envelope-hint">แตะเพื่อเปิด</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ MAIN CONTENT (Hidden initially) ============ -->
+    <main id="main-content" class="main-content hidden">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-badge">🌟 ครบรอบ 10 ปี 🌟</div>
+                <h1 class="hero-names">
+                    <span class="name-q">ปุ้ว</span>
+                    <span class="heart-icon">❤️</span>
+                    <span class="name-f">มุ้ว</span>
+                </h1>
+                <p class="hero-date">13 มีนาคม 2559 — ปัจจุบัน</p>
+                <p class="hero-nicknames">คิว & ฟ้าใส</p>
+                <p class="hero-quote">"ทุกวินาทีที่อยู่ด้วยกัน คือความสุขที่สุดของชีวิต"</p>
+                <div class="scroll-indicator">
+                    <span>เลื่อนลงเพื่อเริ่มต้นการเดินทาง</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Counter Section -->
+        <section id="counter" class="counter-section">
+            <div class="section-container">
+                <h2 class="section-title">💕 ปุ้วกับมุ้วรักกันมาแล้ว 💕</h2>
+                <div class="counter-grid">
+                    <div class="counter-card">
+                        <div class="counter-number" id="count-years">0</div>
+                        <div class="counter-label">ปี</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" id="count-months">0</div>
+                        <div class="counter-label">เดือน</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" id="count-days">0</div>
+                        <div class="counter-label">วัน</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" id="count-hours">0</div>
+                        <div class="counter-label">ชั่วโมง</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" id="count-minutes">0</div>
+                        <div class="counter-label">นาที</div>
+                    </div>
+                    <div class="counter-card counter-card-seconds">
+                        <div class="counter-number" id="count-seconds">0</div>
+                        <div class="counter-label">วินาที</div>
+                    </div>
+                </div>
+                <p class="counter-total-days">รวมทั้งหมด <span id="total-days">0</span> วัน ❤️</p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="section-container">
+                <h2 class="section-title">📸 ความทรงจำของเรา 📸</h2>
+                <p class="section-subtitle">ทุกรูปคือเรื่องราวที่เราสร้างด้วยกัน</p>
+                <div class="gallery-carousel">
+                    <button class="gallery-btn gallery-prev" onclick="prevSlide()"
+                        aria-label="Previous photo">❮</button>
+                    <div class="gallery-viewport">
+                        <div class="gallery-track" id="gallery-track">
+                            <div class="gallery-slide">
+                                <img src="image/IMG_4385.JPG" alt="คิว & ฟ้าใส - ความทรงจำ" loading="lazy">
+                                <div class="slide-caption">วันรับปริญญา 🎓 ความสำเร็จที่มีเธอเคียงข้าง</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_4448.JPG" alt="คิว & ฟ้าใส - ท่องเที่ยว" loading="lazy">
+                                <div class="slide-caption">เที่ยวด้วยกัน 🏔️ ทุกที่สวยงามเพราะมีเธอ</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_5065.JPG" alt="คิว & ฟ้าใส - ช่วงเวลาแห่งความสุข" loading="lazy">
+                                <div class="slide-caption">ช่วงเวลาแห่งความสุข 💫 ยิ้มนี้เพราะเธอ</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/DSC_4901.JPEG" alt="คิว & ฟ้าใส - วันพิเศษ" loading="lazy">
+                                <div class="slide-caption">วันพิเศษของเรา 🌸 ทุกวันกับเธอคือวันพิเศษ</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_9528.JPG" alt="คิว & ฟ้าใส - ถ่ายรูปคู่" loading="lazy">
+                                <div class="slide-caption">คู่ของกัน 💑 ไม่ว่าจะอยู่ไหนก็มีความสุข</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_3444.JPG" alt="คิว & ฟ้าใส - วันสนุก" loading="lazy">
+                                <div class="slide-caption">วันสนุกๆ 🎉 หัวเราะด้วยกันตลอด</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_7657.JPG" alt="คิว & ฟ้าใส - ท่องเที่ยว" loading="lazy">
+                                <div class="slide-caption">ผจญภัยด้วยกัน 🌍 โลกกว้างแต่เราไปด้วยกัน</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_5373.JPG" alt="คิว & ฟ้าใส - เซลฟี่" loading="lazy">
+                                <div class="slide-caption">เซลฟี่คู่ 🤳 ยิ้มสู้ไปด้วยกัน</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_6426.JPG" alt="คิว & ฟ้าใส - ชุดทำงาน" loading="lazy">
+                                <div class="slide-caption">เคียงข้างกันทุกเส้นทาง 👫 ทั้งชีวิตการงาน</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_9933.JPG" alt="คิว & ฟ้าใส - วันรับปริญญา" loading="lazy">
+                                <div class="slide-caption">ก้าวข้ามเส้นชัยด้วยกัน 🎓✨</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_5298.JPG" alt="คิว & ฟ้าใส - เซลฟี่หวาน" loading="lazy">
+                                <div class="slide-caption">สองคนนี้ 💕 หวานเสมอ</div>
+                            </div>
+                            <div class="gallery-slide">
+                                <img src="image/IMG_9648.JPG" alt="คิว & ฟ้าใส - วิวสวย" loading="lazy">
+                                <div class="slide-caption">เที่ยวภูเขาด้วยกัน 🏔️💚</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="gallery-btn gallery-next" onclick="nextSlide()" aria-label="Next photo">❯</button>
+                </div>
+                <div class="gallery-dots" id="gallery-dots"></div>
+                <div class="gallery-counter">
+                    <span id="current-slide">1</span> / <span id="total-slides">12</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Timeline Section -->
+        <section id="timeline" class="timeline-section">
+            <div class="section-container">
+                <h2 class="section-title">📖 เรื่องราวของเรา 📖</h2>
+                <p class="section-subtitle">เส้นทาง 10 ปีแห่งความรัก</p>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2559 (2016)</div>
+                            <h3>💕 จุดเริ่มต้นของเรา</h3>
+                            <p>13 มีนาคม 2559 วันที่สองหัวใจมาเจอกัน วันที่ทุกอย่างเริ่มต้น...
+                                วันที่ปุ้วได้มุ้วมาเป็นแฟน 💕</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2560-2561 (2017-2018)</div>
+                            <h3>🌱 เติบโตไปด้วยกัน</h3>
+                            <p>เรียนรู้ที่จะรักกัน ทะเลาะกันบ้าง แต่สุดท้ายก็หันหน้าเข้าหากัน เพราะรู้ว่าเราคือคนของกัน
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2562-2563 (2019-2020)</div>
+                            <h3>💪 ผ่านทุกอุปสรรค</h3>
+                            <p>ผ่านช่วงโควิดไปด้วยกัน ต่อให้ต้องห่างกัน แต่หัวใจยังอยู่ใกล้กันเสมอ</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2564-2565 (2021-2022)</div>
+                            <h3>🎓 ก้าวสู่เส้นทางใหม่</h3>
+                            <p>เรียนจบ ทำงาน ก้าวไปข้างหน้าด้วยกัน มีเธอเคียงข้าง ทุกเส้นทางไม่เคยกลัว</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2566-2567 (2023-2024)</div>
+                            <h3>✈️ ผจญภัยด้วยกัน</h3>
+                            <p>ไปเที่ยวด้วยกัน สร้างความทรงจำใหม่ๆ ทุกที่ที่ไป มีเธอข้างๆ ก็สวยงาม</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2568-2569 (2025-2026)</div>
+                            <h3>🌟 ครบ 10 ปี!</h3>
+                            <p>10 ปีที่ผ่านมา เราผ่านมาด้วยกันทุกอย่าง และอีก 10 ปี 100 ปี เราก็จะยังอยู่ด้วยกัน ❤️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Love Quiz Game -->
+        <section id="quiz" class="quiz-section">
+            <div class="section-container">
+                <h2 class="section-title">🎮 เกมทายใจ 🎮</h2>
+                <p class="section-subtitle">มุ้วรู้จักปุ้วดีแค่ไหนนะ? มาทดสอบกัน!</p>
+                <div class="quiz-container" id="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+                    </div>
+                    <div class="quiz-question-count">
+                        คำถามที่ <span id="quiz-current">1</span> จาก <span id="quiz-total">5</span>
+                    </div>
+                    <div class="quiz-question" id="quiz-question"></div>
+                    <div class="quiz-options" id="quiz-options"></div>
+                    <div class="quiz-result hidden" id="quiz-result">
+                        <div class="quiz-score" id="quiz-score"></div>
+                        <div class="quiz-message" id="quiz-message"></div>
+                        <button class="btn-primary" onclick="restartQuiz()">เล่นอีกครั้ง 🔄</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FUN GAME 1: Breakup Button (ปุ่มเลิก) ===== -->
+        <section id="breakup-game" class="breakup-section">
+            <div class="section-container">
+                <h2 class="section-title">😈 เกมกวนๆ #1 😈</h2>
+                <p class="section-subtitle">มุ้วจะเลิกกับปุ้วมั้ย?</p>
+                <div class="breakup-container">
+                    <div class="breakup-question">
+                        <p class="breakup-text" id="breakup-text">มุ้วจะเลิกกับปุ้วมั้ย? 🥺</p>
+                    </div>
+                    <div class="breakup-buttons">
+                        <button class="breakup-btn btn-no-breakup" id="btn-no-breakup"
+                            onclick="clickedNoBreakup()">ไม่เลิก! รักปุ้ว ❤️</button>
+                        <button class="breakup-btn btn-yes-breakup" id="btn-yes-breakup"
+                            onmouseover="runAwayButton(event)" ontouchstart="runAwayButton(event)"
+                            onclick="runAwayButton(event)">เลิก 💔</button>
+                    </div>
+                    <p class="breakup-hint" id="breakup-hint">ลองกดปุ่ม "เลิก" ดิ~ 😏</p>
+                    <div class="breakup-result hidden" id="breakup-result">
+                        <div class="breakup-hearts">💕💕💕💕💕</div>
+                        <p class="breakup-message">รู้แล้วว่ามุ้วรักปุ้ว!! 🥰💕</p>
+                        <p class="breakup-submessage">ปุ้วก็รักมุ้วที่สุดเลยนะ~</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FUN GAME 2: Secret Slot Machine ===== -->
+        <section id="slot-game" class="slot-section">
+            <div class="section-container">
+                <h2 class="section-title">🎰 เกมกวนๆ #2 🎰</h2>
+                <p class="section-subtitle">สุ่มความลับของปุ้ว! กดเลย~</p>
+                <div class="slot-container">
+                    <div class="slot-machine">
+                        <div class="slot-display">
+                            <div class="slot-emoji" id="slot-emoji">🎁</div>
+                        </div>
+                        <div class="slot-text" id="slot-text">กดปุ่มเพื่อสุ่มความลับ!</div>
+                        <button class="slot-btn" id="slot-btn" onclick="spinSlot()">🎰 สุ่มเลย!</button>
+                        <div class="slot-counter">สุ่มไปแล้ว <span id="slot-count">0</span> ครั้ง</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wishes / Love Letter Section -->
+        <section id="letter" class="letter-section">
+            <div class="section-container">
+                <h2 class="section-title">💌 จดหมายจากปุ้ว 💌</h2>
+                <div class="letter-paper">
+                    <div class="letter-decoration top-left">🌸</div>
+                    <div class="letter-decoration top-right">🌸</div>
+                    <div class="letter-content">
+                        <p class="letter-greeting">ถึง มุ้วที่รักที่สุด 💕</p>
+                        <p>10 ปีแล้วนะที่เราอยู่ด้วยกัน... บางทีนึกย้อนกลับไป มันเหมือนเพิ่งเมื่อวานที่เราเริ่มคบกัน</p>
+                        <p>ขอบคุณที่อยู่เคียงข้างกันมาตลอด ทั้งวันที่มีความสุข และวันที่ท้อแท้ มุ้วไม่เคยปล่อยมือ
+                            ไม่เคยทิ้งกัน</p>
+                        <p>ขอบคุณที่ทำให้ทุกวันมีความหมาย ขอบคุณที่ดูแลปุ้วเสมอ ขอบคุณที่เป็น "มุ้ว" ของปุ้ว</p>
+                        <p>อยากจะบอกว่า... ไม่ว่าจะผ่านไปกี่ปี กี่สิบปี ปุ้วก็ยังอยากอยู่ข้างมุ้ว อยากเห็นมุ้วยิ้ม
+                            อยากทำให้มุ้วมีความสุข</p>
+                        <p>สุขสันต์ครบรอบ 10 ปีนะครับ 🎉</p>
+                        <p class="letter-closing">
+                            ปุ้วรักมุ้วที่สุดเลย ❤️<br>
+                            <span class="letter-signature">— ปุ้ว (คิว) 💕</span>
+                        </p>
+                    </div>
+                    <div class="letter-decoration bottom-left">🌸</div>
+                    <div class="letter-decoration bottom-right">🌸</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promise Section -->
+        <section id="promise" class="promise-section">
+            <div class="section-container">
+                <h2 class="section-title">🤞 สัญญาจากปุ้ว 🤞</h2>
+                <div class="promise-grid">
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">🏠</div>
+                        <p>จะสร้างบ้านที่อบอุ่นให้ปุ้วกับมุ้ว</p>
+                    </div>
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">😊</div>
+                        <p>จะทำให้มุ้วยิ้มทุกวัน</p>
+                    </div>
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">🤝</div>
+                        <p>จะไม่ปล่อยมือมุ้ว ไม่ว่าจะเกิดอะไรขึ้น</p>
+                    </div>
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">💪</div>
+                        <p>จะเป็นที่พึ่งพาให้มุ้วเสมอ</p>
+                    </div>
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">✈️</div>
+                        <p>จะพามุ้วไปเที่ยวทุกที่ที่อยากไป</p>
+                    </div>
+                    <div class="promise-card" data-aos="zoom-in">
+                        <div class="promise-icon">💍</div>
+                        <p>จะรักมุ้วตลอดไป... ตลอดไปจริงๆ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <div class="footer-hearts">💕💕💕</div>
+            <p class="footer-text">Made with ❤️ by ปุ้ว for มุ้ว</p>
+            <p class="footer-anniversary">ครบรอบ 10 ปี • 13 มีนาคม 2559 - 2569</p>
+            <p class="footer-forever">Forever & Always 💕</p>
+        </footer>
+    </main>
+
+    <!-- Background Music Toggle -->
+    <button class="music-toggle" id="music-toggle" onclick="toggleMusic()" aria-label="Toggle music">
+        🎵
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
