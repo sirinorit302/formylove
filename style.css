@@ -81,6 +81,8 @@ body {
     min-height: -webkit-fill-available;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ===== Scrollbar ===== */
@@ -149,25 +151,28 @@ body {
     font-size: 20px;
     animation: floatHeart linear infinite;
     opacity: 0;
+    will-change: transform, opacity;
+    pointer-events: none;
 }
 
 @keyframes floatHeart {
     0% {
-        transform: translateY(100vh) rotate(0deg) scale(0);
+        transform: translateY(100vh) rotate(0deg) scale(0) translateZ(0);
         opacity: 0;
     }
 
     10% {
         opacity: 0.6;
-        transform: translateY(90vh) rotate(36deg) scale(1);
+        transform: translateY(90vh) rotate(36deg) scale(1) translateZ(0);
     }
 
     90% {
         opacity: 0.3;
+        transform: translateY(10vh) rotate(324deg) scale(0.8) translateZ(0);
     }
 
     100% {
-        transform: translateY(-10vh) rotate(360deg) scale(0.5);
+        transform: translateY(-10vh) rotate(360deg) scale(0.5) translateZ(0);
         opacity: 0;
     }
 }
@@ -196,11 +201,12 @@ body {
 
 .star {
     position: absolute;
-    width: 3px;
-    height: 3px;
+    width: 2px;
+    height: 2px;
     background: white;
     border-radius: 50%;
     animation: twinkle ease-in-out infinite;
+    will-change: opacity, transform;
 }
 
 @keyframes twinkle {
@@ -208,12 +214,12 @@ body {
     0%,
     100% {
         opacity: 0.2;
-        transform: scale(0.8);
+        transform: scale(0.8) translateZ(0);
     }
 
     50% {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.2) translateZ(0);
     }
 }
 
@@ -535,14 +541,17 @@ body {
 }
 
 .counter-card {
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.05);
+    /* Reduced blur heavy weight */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
     padding: 28px 16px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    /* Reduced from 10px */
+    -webkit-backdrop-filter: blur(5px);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    will-change: transform;
 }
 
 .counter-card:hover {
@@ -616,6 +625,7 @@ body {
 .gallery-track {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
 }
 
 .gallery-slide {
