@@ -250,28 +250,28 @@ function stopAutoSlide() {
 // ===== QUIZ GAME =====
 const quizQuestions = [
     {
-        question: "💕 ปุ้วกับมุ้วคบกันวันที่เท่าไหร่?",
+        question: "💕 ปุ้วกับนู่คบกันวันที่เท่าไหร่?",
         options: ["13 มีนาคม 2559", "14 กุมภาพันธ์ 2559", "1 มกราคม 2559", "25 ธันวาคม 2558"],
         correct: 0
     },
     {
-        question: "🎂 ตอนนี้ปุ้วกับมุ้วคบกันกี่ปีแล้ว?",
+        question: "🎂 ตอนนี้ปุ้วกับนู่คบกันกี่ปีแล้ว?",
         options: ["8 ปี", "9 ปี", "10 ปี", "11 ปี"],
         correct: 2
     },
     {
-        question: "💑 อะไรคือสิ่งที่ทำให้ปุ้วกับมุ้วรักกันยืนยาว?",
-        options: ["เงินทอง", "ความเข้าใจและอดทน", "หน้าตา", "โชคชะตา"],
+        question: "💑 อะไรคือสิ่งที่ทำให้ปุ้วกับนู่รักกันยืนยาว?",
+        options: ["เงินทอง", "ความเข้าใจ", "หน้าตา", "พุงปุ้ว"],
         correct: 1
     },
     {
-        question: "🌟 ปุ้วอยากบอกอะไรมุ้วมากที่สุด?",
-        options: ["ขอยืมเงิน", "รักมุ้วที่สุดเลย", "หิวข้าว", "ง่วงนอน"],
+        question: "🌟 ปุ้วอยากบอกอะไรนู่มากที่สุด?",
+        options: ["ขอยืมเงิน", "รักนู่ที่สุดเลย", "หิวข้าว", "ง่วงนอน"],
         correct: 1
     },
     {
         question: "💍 ปุ้วสัญญาว่าจะ...?",
-        options: ["ไปเที่ยวคนเดียว", "กินข้าวไม่ชวน", "รักมุ้วตลอดไป", "นอนทั้งวัน"],
+        options: ["ไปเที่ยวคนเดียว", "กินข้าวไม่ชวน", "รักนู่ตลอดไป", "นอนทั้งวัน"],
         correct: 2
     }
 ];
@@ -357,9 +357,9 @@ function showQuizResult() {
     let message = '';
     const percent = score / quizQuestions.length;
     if (percent === 1) {
-        message = '🎉 เก่งมาก! ตอบถูกหมดเลย!\nมุ้วรู้จักปุ้วดีมากจริงๆ 💕\nปุ้วรักมุ้วที่สุดเลย!';
+        message = '🎉 เก่งมาก! ตอบถูกหมดเลย!\nนู่รู้จักปุ้วดีมากจริงๆ 💕\nปุ้วรักนู่ที่สุดเลย!';
     } else if (percent >= 0.6) {
-        message = '😊 เก่งมาก! มุ้วรู้จักปุ้วดีนะ 💕\nแต่ว่ามาเรียนรู้กันเพิ่มอีกนะ!';
+        message = '😊 เก่งมาก! นู่รู้จักปุ้วดีนะ 💕\nแต่ว่ามาเรียนรู้กันเพิ่มอีกนะ!';
     } else {
         message = '🤭 ไม่เป็นไร~ เราจะได้เรียนรู้กันเพิ่ม 💕\nปุ้วรอเล่าให้ฟังอยู่นะ!';
     }
@@ -400,110 +400,7 @@ function initScrollAnimations() {
     });
 }
 
-// ===== MUSIC =====
-let musicPlaying = false;
-let bgMusic = null;
-
-function toggleMusic() {
-    const btn = document.getElementById('music-toggle');
-
-    if (!bgMusic) {
-        // Create an AudioContext for generating a simple melody
-        bgMusic = createMelody();
-    }
-
-    if (musicPlaying) {
-        bgMusic.suspend();
-        btn.classList.remove('playing');
-        btn.textContent = '🎵';
-    } else {
-        bgMusic.resume();
-        btn.classList.add('playing');
-        btn.textContent = '🎶';
-    }
-
-    musicPlaying = !musicPlaying;
-}
-
-function createMelody() {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-    // Beautiful love melody notes (frequencies in Hz)
-    const melody = [
-        { freq: 523.25, dur: 0.5 },  // C5
-        { freq: 587.33, dur: 0.5 },  // D5
-        { freq: 659.25, dur: 1.0 },  // E5
-        { freq: 587.33, dur: 0.5 },  // D5
-        { freq: 523.25, dur: 0.5 },  // C5
-        { freq: 493.88, dur: 0.5 },  // B4
-        { freq: 523.25, dur: 1.0 },  // C5
-        { freq: 0, dur: 0.5 },       // rest
-        { freq: 392.00, dur: 0.5 },  // G4
-        { freq: 440.00, dur: 0.5 },  // A4
-        { freq: 493.88, dur: 1.0 },  // B4
-        { freq: 440.00, dur: 0.5 },  // A4
-        { freq: 392.00, dur: 0.5 },  // G4
-        { freq: 349.23, dur: 0.5 },  // F4
-        { freq: 392.00, dur: 1.5 },  // G4
-    ];
-
-    function playMelody(startTime) {
-        let time = startTime;
-        melody.forEach(note => {
-            if (note.freq > 0) {
-                // Main oscillator
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.type = 'sine';
-                osc.frequency.value = note.freq;
-
-                gain.gain.setValueAtTime(0, time);
-                gain.gain.linearRampToValueAtTime(0.06, time + 0.05);
-                gain.gain.linearRampToValueAtTime(0.04, time + note.dur * 0.7);
-                gain.gain.linearRampToValueAtTime(0, time + note.dur);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.start(time);
-                osc.stop(time + note.dur);
-
-                // Harmony (fifth above, softer)
-                const osc2 = audioCtx.createOscillator();
-                const gain2 = audioCtx.createGain();
-                osc2.type = 'sine';
-                osc2.frequency.value = note.freq * 1.5;
-
-                gain2.gain.setValueAtTime(0, time);
-                gain2.gain.linearRampToValueAtTime(0.015, time + 0.05);
-                gain2.gain.linearRampToValueAtTime(0.01, time + note.dur * 0.7);
-                gain2.gain.linearRampToValueAtTime(0, time + note.dur);
-
-                osc2.connect(gain2);
-                gain2.connect(audioCtx.destination);
-                osc2.start(time);
-                osc2.stop(time + note.dur);
-            }
-            time += note.dur;
-        });
-        return time;
-    }
-
-    // Loop the melody
-    const totalDuration = melody.reduce((sum, n) => sum + n.dur, 0);
-
-    function scheduleLoop() {
-        let time = audioCtx.currentTime + 0.1;
-        for (let i = 0; i < 100; i++) { // Schedule many loops ahead
-            time = playMelody(time);
-            time += 1; // Gap between loops
-        }
-    }
-
-    scheduleLoop();
-    audioCtx.suspend(); // Start suspended
-
-    return audioCtx;
-}
+// Music removed as requested
 
 // ===== BREAKUP BUTTON GAME (เกมกวนๆ #1) =====
 let breakupAttempts = 0;
@@ -567,7 +464,7 @@ function runAwayButton(event) {
         text.textContent = 'หยุดเถอะ! กด "ไม่เลิก" ซะ! 😂💕';
     }
     if (breakupAttempts >= 8) {
-        text.textContent = 'อย่าดื้อดึง! ปุ้วรักมุ้วนะครับ! 🥺❤️';
+        text.textContent = 'อย่าดื้อ! ปุ้วรักนู่! 🥺❤️';
     }
 }
 
@@ -591,6 +488,90 @@ function clickedNoBreakup() {
 }
 
 
+// ===== WOW CURSOR TRAIL (Canvas Optimized) =====
+function initCursorHeartTrail() {
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '9999';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const particles = [];
+    const hearts = ['💕', '💕', '💗', '💖', '✨', '🌸'];
+
+    let lastSpawn = 0;
+
+    function spawnParticle(x, y) {
+        const now = Date.now();
+        if (now - lastSpawn < 30) return;
+        lastSpawn = now;
+
+        particles.push({
+            x: x,
+            y: y,
+            char: hearts[Math.floor(Math.random() * hearts.length)],
+            life: 1,
+            size: Math.random() * 12 + 12,
+            vy: Math.random() * -2 - 1,
+            vx: Math.random() * 2 - 1,
+            rot: Math.random() * 360,
+            rotSpeed: Math.random() * 4 - 2
+        });
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        spawnParticle(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+            spawnParticle(e.touches[0].clientX, e.touches[0].clientY);
+        }
+    }, { passive: true });
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.life -= 0.015;
+            p.y += p.vy;
+            p.x += p.vx;
+            p.rot += p.rotSpeed;
+
+            if (p.life <= 0) {
+                particles.splice(i, 1);
+                continue;
+            }
+
+            ctx.save();
+            ctx.globalAlpha = p.life;
+            ctx.font = `${p.size}px "Noto Sans Thai", sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.translate(p.x, p.y);
+            ctx.fillText(p.char, 0, 0);
+            ctx.restore();
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
 // ===== KEYBOARD SHORTCUTS =====
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextSlide();
@@ -602,6 +583,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     createStars();
     createFloatingHearts();
+    initCursorHeartTrail();
     initQuiz();
 
     // === iOS Viewport Height Fix ===
@@ -613,16 +595,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setVH();
     window.addEventListener('resize', setVH);
 
-    // === iOS: Resume AudioContext on first touch ===
-    // iOS requires user gesture to start audio
-    let audioResumed = false;
-    function resumeAudioOnTouch() {
-        if (!audioResumed && bgMusic) {
-            bgMusic.resume().then(() => {
-                bgMusic.suspend(); // Re-suspend until user clicks music button
-            }).catch(() => { });
-            audioResumed = true;
-        }
-    }
-    document.addEventListener('touchstart', resumeAudioOnTouch, { once: true });
+    // Audio resume feature removed
 });
